@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function main() {
     let toDoListContainer = document.getElementsByClassName("todo-container")[0];
-    let addToDoBtn = document.getElementsByClassName("add-todo")[0];
+    let addToDoBtn = document.getElementsByClassName("add-todo-btn")[0];
 
     addToDoBtn.addEventListener('click', () => {
 
