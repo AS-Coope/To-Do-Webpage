@@ -40,7 +40,6 @@ function main() {
             addSingleToDoToContainer(toDoListContainer, singleToDo);
         }
 
-        let myDiv = document.createElement("h2");
         let userInput = prompt("Write a ToDo");
         if (userInput !== null && userInput !== "") {
             createToDo(userInput);
