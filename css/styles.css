@@ -32,4 +32,13 @@ body {
     border-top: 2px solid black;
     margin: 10px;
     overflow: auto;
+    padding: 10px;
+}
+
+.single-todo {
+    border: 2px solid black;
+}
+
+.single-todo .todo-text {
+    font-size: 18px;
 }
