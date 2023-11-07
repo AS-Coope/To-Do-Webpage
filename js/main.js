@@ -40,13 +40,13 @@ function main() {
         }
 
         let myDiv = document.createElement("h2");
-        let toDo = prompt("Write a ToDo");
-        if (toDo !== null && toDo !== "") {
+        let userInput = prompt("Write a ToDo");
+        if (userInput !== null && userInput !== "") {
             myDiv.textContent = toDo;
             toDoListContainer.appendChild(myDiv);
         } else {
             alert("No ToDo entered!");
-            console.log(toDo, typeof toDo);
+            console.log(userInput, typeof userInput);
         }
     });
 
