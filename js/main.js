@@ -11,6 +11,7 @@ function main() {
         function createElementWithClass(element, className) {
             let elemWithClass = document.createElement(element);
             elemWithClass.setAttribute("class", className);
+            return elemWithClass;
         }
 
         function createAndReturnSingleToDo() {
@@ -34,7 +35,7 @@ function main() {
 
         function createToDo(userToDoInput) {
             let singleToDo = createAndReturnSingleToDo();
-            let toDoText = getToDoTextElement();
+            let toDoText = getToDoTextElement(singleToDo);
             setTextContentOfToDoTextElement(toDoText, userToDoInput);
             addSingleToDoToContainer(toDoListContainer, singleToDo);
         }
@@ -42,8 +43,7 @@ function main() {
         let myDiv = document.createElement("h2");
         let userInput = prompt("Write a ToDo");
         if (userInput !== null && userInput !== "") {
-            myDiv.textContent = toDo;
-            toDoListContainer.appendChild(myDiv);
+            createToDo(userInput);
         } else {
             alert("No ToDo entered!");
             console.log(userInput, typeof userInput);
