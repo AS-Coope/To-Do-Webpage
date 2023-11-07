@@ -24,6 +24,10 @@ body {
     align-self: center;
 }
 
+.add-todo {
+    align-self: center;
+}
+
 .container .todo-container {
     border-top: 2px solid black;
     margin: 10px;

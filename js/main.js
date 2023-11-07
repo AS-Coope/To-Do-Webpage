@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function main() {
     let toDoListContainer = document.getElementsByClassName("todo-container")[0];
-    let container = document.getElementsByClassName("container")[0];
+    let addToDoBtn = document.getElementsByClassName("add-todo")[0];
 
-    container.addEventListener('click', () => {
+    addToDoBtn.addEventListener('click', () => {
         let myDiv = document.createElement("h2");
         let toDo = prompt("Write a ToDo");
         if (toDo !== null && toDo !== "") {
