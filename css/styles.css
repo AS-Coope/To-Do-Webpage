@@ -29,6 +29,9 @@ body {
 }
 
 .container .todo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     border-top: 2px solid black;
     margin: 10px;
     overflow: auto;
@@ -36,6 +39,11 @@ body {
 }
 
 .single-todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 5px 10px;
     border: 2px solid black;
 }
 
