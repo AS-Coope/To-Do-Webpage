@@ -9,7 +9,7 @@ function main() {
     container.addEventListener('click', () => {
         let myDiv = document.createElement("h2");
         let toDo = prompt("Write a ToDo");
-        if (toDo !== null) {
+        if (toDo !== null && toDo !== "") {
             myDiv.textContent = toDo;
             toDoListContainer.appendChild(myDiv);
         } else {
