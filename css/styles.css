@@ -25,5 +25,7 @@ body {
 }
 
 .container .todo-container {
+    border-top: 2px solid black;
+    margin: 10px;
     overflow: auto;
 }
