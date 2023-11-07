@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function main() {
-    let toDoListContainer = document.getElementsByClassName("container")[0];
+    let toDoListContainer = document.getElementsByClassName("todo-container")[0];
+    let container = document.getElementsByClassName("container")[0];
 
-    /*
-    toDoListContainer.addEventListener('click', () => {
+    container.addEventListener('click', () => {
         let myDiv = document.createElement("h2");
         let toDo = prompt("Write a ToDo");
         if (toDo !== null) {
@@ -17,5 +17,5 @@ function main() {
             console.log(toDo);
         }
     });
-    */
+
 }
