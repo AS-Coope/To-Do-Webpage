@@ -14,7 +14,7 @@ function main() {
             toDoListContainer.appendChild(myDiv);
         } else {
             alert("No ToDo entered!");
-            console.log(toDo);
+            console.log(toDo, typeof toDo);
         }
     });
 
