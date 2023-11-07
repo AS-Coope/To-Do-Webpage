@@ -41,7 +41,7 @@ function main() {
         }
 
         //let userInput = prompt("Write a ToDo");
-        userInput = "Task";
+        userInput = "Task"; // remove and uncomment code above to allow actual user input
         if (userInput !== null && userInput !== "") {
             createToDo(userInput);
         } else {
