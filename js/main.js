@@ -40,7 +40,8 @@ function main() {
             addSingleToDoToContainer(toDoListContainer, singleToDo);
         }
 
-        let userInput = prompt("Write a ToDo");
+        //let userInput = prompt("Write a ToDo");
+        userInput = "Task";
         if (userInput !== null && userInput !== "") {
             createToDo(userInput);
         } else {
