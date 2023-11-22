@@ -21,6 +21,13 @@ function main() {
             return elemWithClass;
         }
 
+        function addIdToDeleteButton() {
+            //console.log(document.getElementsByClassName("delete-button").length);
+            for (let buttonIndex = 0; buttonIndex < document.getElementsByClassName("delete-button").length; buttonIndex++) {
+                document.getElementsByClassName("delete-button")[buttonIndex].setAttribute("id", `${buttonIndex}`);
+            }
+        }
+
         function getToDoTextElement(singleToDo) {
             return singleToDo.querySelector(".todo-text");
         }
@@ -38,6 +45,7 @@ function main() {
             let toDoText = getToDoTextElement(singleToDo);
             setTextContentOfToDoTextElement(toDoText, userToDoInput);
             addSingleToDoToContainer(toDoListContainer, singleToDo);
+            addIdToDeleteButton();
         }
 
         //let userInput = prompt("Write a ToDo");
