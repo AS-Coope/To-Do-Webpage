@@ -26,6 +26,11 @@ body {
 
 .add-todo-btn {
     align-self: center;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: lightblue;
 }
 
 .container .todo-container {
