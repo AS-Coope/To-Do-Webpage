@@ -1,5 +1,7 @@
 # To-Do Webpage
 
+![Screenshot of v1.0 of webpage](img/ToDo%20Webpage%20Screenshot%20v1.0.png)
+
 ## Overview
 A simple webpage that allows the user to create, view and delete To-Dos.
 
