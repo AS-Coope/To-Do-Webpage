@@ -17,10 +17,14 @@ function main() {
         function createAndReturnSingleToDo() {
             elemWithClass = createElementWithClass("div", "single-todo");
             elemWithClass.appendChild(createElementWithClass("div", "todo-text"));
-            elemWithClass.appendChild(createElementWithClass("div", "delete-button"));
+            elemWithClass.appendChild(createElementWithClass("div", "delete-button")).textContent = "Delete";
             return elemWithClass;
         }
 
+        // each button needs an id so it can be tracked when deleted
+        // otherwise adding an event listener on a delete button for that specific todo 
+        // will cause it to break for every delete button on every todo
+        // because the event listener cannot tell which delete button was pressed
         function addIdToDeleteButton() {
             //console.log(document.getElementsByClassName("delete-button").length);
             for (let buttonIndex = 0; buttonIndex < document.getElementsByClassName("delete-button").length; buttonIndex++) {
