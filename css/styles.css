@@ -9,8 +9,8 @@ body {
 
     margin: 0 auto;
     width: 50%;
-    margin-top: 20vh;
-    height: 50vh;
+    margin-top: 5rem;
+    height: min(30rem);
 
     display: flex;
     flex-direction: column;
