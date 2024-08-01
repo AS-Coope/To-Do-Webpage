@@ -3,6 +3,8 @@ body {
     box-sizing: border-box;
     margin: 0;
     background-color: rgb(179, 214, 211);
+    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+    font-weight: normal;
 }
 
 .container {
