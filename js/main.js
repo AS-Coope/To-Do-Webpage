@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function main() {
     let toDoListContainer = document.getElementsByClassName("todo-container")[0];
     let addToDoBtn = document.getElementsByClassName("add-todo-btn")[0];
+    let todoInput = document.getElementById("todo-input");
 
     addToDoBtn.addEventListener('click', () => {
 
@@ -52,7 +53,8 @@ function main() {
             addSingleToDoToContainer(toDoListContainer, singleToDo);
         }
 
-        let userInput = prompt("Write a ToDo");
+
+        let userInput = todoInput.value;
         //userInput = "Task"; // remove and uncomment code above to allow actual user input
         if (userInput !== null && userInput !== "") {
             createToDo(userInput);
