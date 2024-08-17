@@ -10,12 +10,14 @@ addToDoBtn.addEventListener('click', () => {
     }
 
     function createToDo(userToDoInput) {
-        let singleToDo = createAndReturnSingleToDo();
-        let toDoText = getToDoTextElement(singleToDo);
-        let delBtn = getToDoDeleteBtnElement(singleToDo);
-        setTextContentOfToDoTextElement(toDoText, userToDoInput);
-        addDeleteEventListener(delBtn);
-        addSingleToDoToContainer(toDoListContainer, singleToDo);
+        let todo = new Todo();
+        todo.createAndReturnSingleToDo();
+        todo.setTextContentOfToDoTextElement(userInput);
+        addSingleToDoToContainer(toDoListContainer, todo.getToDoBody());
+        todoList.push(todo.todo_values);
+        todo.addDeleteEventListener();
+        console.log(todoList);
+        console.log(todo.todo_values);
     }
 
 
