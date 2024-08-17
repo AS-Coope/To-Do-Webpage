@@ -16,8 +16,8 @@ addToDoBtn.addEventListener('click', () => {
         addSingleToDoToContainer(toDoListContainer, todo.getToDoBody());
         todoList.push(todo.todo_values);
         todo.addDeleteEventListener();
-        console.log(todoList);
-        console.log(todo.todo_values);
+        /* console.log(todoList); */
+        /* console.log(todo.todo_values); */
     }
 
 
@@ -75,7 +75,7 @@ class Todo {
     }
 
     addDeleteEventListener() {
-        console.log(`@ creating delete button: ${todoList}`);
+        /* console.log(`@ creating delete button: ${todoList}`); */
         this.getToDoDeleteBtnElement().addEventListener('click', () => {
             // this will also need code to remove the todo from local storage
             // find the index of current todo.todo_values
