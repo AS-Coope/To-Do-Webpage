@@ -16,8 +16,8 @@ body {
 
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
-    border-radius: 20px;
+    border: 0.125rem solid black;
+    border-radius: 1.25rem;
 
     background-color: #f3f3f3;
 }
@@ -50,39 +50,42 @@ body {
     padding: 0.5rem;
     font-weight: bold;
     border: 0.15rem solid rgb(22, 34, 34);
-    border-radius: 5px;
+    border-radius: 0.3rem;
     background-color: lightskyblue;
 }
 
 .container #todo-container {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    border-top: 2px solid black;
-    margin: 10px;
+    gap: 0.3rem;
+    border-top: 0.125rem solid black;
+    margin: 0.75rem;
     overflow: auto;
-    padding: 10px;
+    padding: 0.75rem;
 }
 
 .single-todo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
 
-    padding: 5px 10px;
-    border: 2px solid black;
+    padding: 0.3rem 0.75rem;
+    border: 0.125rem solid black;
+
 }
 
 .single-todo .todo-text {
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .single-todo .delete-button {
 
     cursor: pointer;
-    padding: 5px;
-    border: 1px solid black;
-    border-radius: 5px;
+    padding: 0.4rem 1rem;
+    font-size: 0.845rem;
+    font-weight: bold;
+    border: 0.15rem solid black;
+    border-radius: 0.3rem;
     background-color: lightblue;
 }
