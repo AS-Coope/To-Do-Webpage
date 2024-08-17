@@ -12,7 +12,7 @@ function addToDo() {
     function createToDo(userToDoInput) {
         let todo = new Todo();
         todo.createAndReturnSingleToDo();
-        todo.setTextContentOfToDoTextElement(userInput);
+        todo.setTextContentOfToDoTextElement(userToDoInput);
         addSingleToDoToContainer(toDoListContainer, todo.getToDoBody());
         todoList.push(todo.todo_values);
         todo.addDeleteEventListener();
