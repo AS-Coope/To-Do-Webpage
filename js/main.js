@@ -1,6 +1,7 @@
 let toDoListContainer = document.getElementsByClassName("todo-container")[0];
 let addToDoBtn = document.getElementsByClassName("add-todo-btn")[0];
 let todoInput = document.getElementById("todo-input");
+let todoList = [];
 
 addToDoBtn.addEventListener('click', () => {
 
