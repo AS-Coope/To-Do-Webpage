@@ -1,5 +1,5 @@
-let toDoListContainer = document.getElementsByClassName("todo-container")[0];
-let addToDoBtn = document.getElementsByClassName("add-todo-btn")[0];
+let toDoListContainer = document.getElementById("todo-container");
+let addToDoBtn = document.getElementById("add-todo-btn");
 let todoInput = document.getElementById("todo-input");
 let todoList = [];
 
