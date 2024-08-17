@@ -3,7 +3,7 @@ let addToDoBtn = document.getElementById("add-todo-btn");
 let todoInput = document.getElementById("todo-input");
 let todoList = [];
 
-addToDoBtn.addEventListener('click', () => {
+function addToDo() {
 
     function addSingleToDoToContainer(tdlContainer, theSingleToDo) {
         tdlContainer.appendChild(theSingleToDo);
@@ -30,7 +30,9 @@ addToDoBtn.addEventListener('click', () => {
         alert("No ToDo entered!");
         console.log(userInput, typeof userInput);
     }
-});
+}
+
+addToDoBtn.addEventListener('click', addToDo);
 
 class Todo {
 
