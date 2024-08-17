@@ -25,6 +25,7 @@ addToDoBtn.addEventListener('click', () => {
     //userInput = "Task"; // remove and uncomment code above to allow actual user input
     if (userInput !== null && userInput !== "") {
         createToDo(userInput);
+        todoInput.value = "" // clear input area after todo's successful submission
     } else {
         alert("No ToDo entered!");
         console.log(userInput, typeof userInput);
