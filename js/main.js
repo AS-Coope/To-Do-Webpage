@@ -32,6 +32,11 @@ function addToDo() {
     }
 }
 
+todoInput.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+        addToDo();
+    }
+});
 addToDoBtn.addEventListener('click', addToDo);
 
 class Todo {
