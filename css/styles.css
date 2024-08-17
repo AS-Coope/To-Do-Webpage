@@ -45,7 +45,7 @@ body {
     padding: 0rem 0.8rem;
 }
 
-.add-todo-btn {
+#add-todo-btn {
     cursor: pointer;
     padding: 0.5rem;
     font-weight: bold;
@@ -54,7 +54,7 @@ body {
     background-color: lightskyblue;
 }
 
-.container .todo-container {
+.container #todo-container {
     display: flex;
     flex-direction: column;
     gap: 5px;
