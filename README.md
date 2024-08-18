@@ -8,13 +8,13 @@ A simple webpage that allows the user to create, view and delete To-Dos.
 ## Usage
 1. Clone project to your local machine.
 2. Open the project in your preferred IDE.
-3. Open the html file to use the webpage. 
+3. Open the html file to use the webpage (Alternatively, if you have [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) in VS Code, you can start the web page using that).
 
 ## Possible Improvements
 
-1. Currently, the user input for a task is entered via a prompt dialog box. An improvement would be to create an input element and a button element and have the user enter their ToDo via that.
-2. The UI definitely needs some improvement, whether to look more inviting or be more intuitive.
-3. Actually add a label to tell when a task is complete, incomplete or in-progress, rather than just deleting the task to signify it is complete.
+1. The UI definitely needs some improvement, whether to look more inviting or be more intuitive. (In-progress as the webpage develops)
+2. Actually add a label to tell when a task is complete, incomplete or in-progress, rather than just deleting the task to signify it is complete.
+3. Add local storage saving.
 
 ## Disadvantages
 
