@@ -89,9 +89,27 @@ class Todo {
             // find the index of current todo.todo_values
             // then remove it from the list
             let idx = todoList.findIndex(values => values.id === this.todo_values.id);
-            todoList.splice(idx, 1);
+
+            if (idx !== -1) { // to make sure this does not run if an error occurs while getting the
+                // id of the deleted element
+
+                todoList.splice(idx, 1);
+
+                // find all todos that come after the id of the deleted todo and update their ids
+                todoList.forEach(element => {
+                    if (element.id > idx) {
+                        element.id = idx;
+                        idx += 1;
+                    }
+                })
+                // ensure a new todo's id immediately numerically follows the current last todo's id
+                Todo.classId = idx;
+            }
+
+            localStorage.setItem('todos', JSON.stringify(todoList));
+
             this.getToDoDeleteBtnElement().parentNode.remove();
-        })
+        });
     }
 
     setTextContentOfToDoTextElement(userTextContent) {
@@ -117,6 +135,8 @@ if (Array.isArray(todoList) && (todoList.length > 0)) {
         addSingleToDoToContainer(toDoListContainer, temp_todo.getToDoBody());
         //todoList.push(todo.todo_values); // don't need this since the list was already populated via localstorage
         temp_todo.addDeleteEventListener();
+        console.log(temp_todo.classId);
+
         //localStorage.setItem('todos', JSON.stringify(todoList)); // don't need this since we pulled from localstorage already
     });
 }
