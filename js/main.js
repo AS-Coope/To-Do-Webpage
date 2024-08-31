@@ -15,14 +15,11 @@ function createToDo(userToDoInput) {
     todoList.push(todo.todo_values);
     todo.addDeleteEventListener();
     localStorage.setItem('todos', JSON.stringify(todoList)); // save todoList to local storage
-    /* console.log(todoList); */
-    /* console.log(todo.todo_values); */
 }
 
 function addToDo() {
 
     let userInput = todoInput.value;
-    //userInput = "Task"; // remove and uncomment code above to allow actual user input
     if (userInput !== null && userInput !== "") {
         createToDo(userInput);
         todoInput.value = "" // clear input area after todo's successful submission
@@ -32,11 +29,14 @@ function addToDo() {
     }
 }
 
+// submit todo via 'Enter' key in input
 todoInput.addEventListener('keydown', (event) => {
     if (event.key === "Enter") {
         addToDo();
     }
 });
+
+// submit todo via button press
 addToDoBtn.addEventListener('click', addToDo);
 
 class Todo {
@@ -83,48 +83,36 @@ class Todo {
     }
 
     addDeleteEventListener() {
-        /* console.log(`@ creating delete button: ${todoList}`); */
-        this.getToDoDeleteBtnElement().addEventListener('click', () => {
-            // this will also need code to remove the todo from local storage
-            // find the index of current todo.todo_values
-            // then remove it from the list
-            let idx = todoList.findIndex(values => values.id === this.todo_values.id);
 
-            if (idx !== -1) { // to make sure this does not run if an error occurs while getting the
-                // id of the deleted element
+        // removes todo from local storage, as well as from the on screen list container
+        this.getToDoDeleteBtnElement().addEventListener('click', () => {
+
+            let idx = todoList.findIndex(values => values.id === this.todo_values.id);
+            if (idx !== -1) { // runs only if the idx is found
 
                 todoList.splice(idx, 1);
-
-                // find all todos that come after the id of the deleted todo and update their ids
-                todoList.forEach(element => {
-                    if (element.id > idx) {
-                        element.id = idx;
+                todoList.forEach(todo => {
+                    // any todo whose id is larger than idx is updated to account for this
+                    // todo's deletion
+                    if (todo.id > idx) {
+                        todo.id = idx;
                         idx += 1;
                     }
-                })
+                });
                 // ensure a new todo's id immediately numerically follows the current last todo's id
                 Todo.classId = idx;
             }
 
             localStorage.setItem('todos', JSON.stringify(todoList));
-
             this.getToDoDeleteBtnElement().parentNode.remove();
         });
     }
 
     setTextContentOfToDoTextElement(userTextContent) {
         this.getToDoTextElement().textContent = userTextContent;
-        this.todo_values.text = userTextContent
-    }
-
-    addSingleToDoToContainer(tdlContainer, theSingleToDo) {
-        tdlContainer.appendChild(theSingleToDo);
+        this.todo_values.text = userTextContent;
     }
 }
-// check if the todo list is empty
-// if it is not empty, then cycle through each todo in the list and create it in the todo container
-// given the todolist does not contain the object, but the todo values, todo objects will
-//  have to be created in the loop
 
 // run only if an array (list) was returned from localstorage and there is at least one todo in the array
 if (Array.isArray(todoList) && (todoList.length > 0)) {
@@ -133,12 +121,7 @@ if (Array.isArray(todoList) && (todoList.length > 0)) {
         temp_todo.createAndReturnSingleToDo();
         temp_todo.setTextContentOfToDoTextElement(element.text);
         addSingleToDoToContainer(toDoListContainer, temp_todo.getToDoBody());
-        //todoList.push(todo.todo_values); // don't need this since the list was already populated via localstorage
         temp_todo.addDeleteEventListener();
         console.log(temp_todo.classId);
-
-        //localStorage.setItem('todos', JSON.stringify(todoList)); // don't need this since we pulled from localstorage already
     });
 }
-// when the delete button on a todo is clicked
-// that todo should be removed from the todoList
