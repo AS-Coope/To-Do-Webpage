@@ -16,6 +16,7 @@ function addToDo() {
         addSingleToDoToContainer(toDoListContainer, todo.getToDoBody());
         todoList.push(todo.todo_values);
         todo.addDeleteEventListener();
+        localStorage.setItem('todos', JSON.stringify(todoList)); // save todoList to local storage
         /* console.log(todoList); */
         /* console.log(todo.todo_values); */
     }
