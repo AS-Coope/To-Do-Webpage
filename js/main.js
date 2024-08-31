@@ -1,7 +1,7 @@
 let toDoListContainer = document.getElementById("todo-container");
 let addToDoBtn = document.getElementById("add-todo-btn");
 let todoInput = document.getElementById("todo-input");
-let todoList = [];
+let todoList = JSON.parse(localStorage.getItem('todos')) || [];
 
 function addToDo() {
 
