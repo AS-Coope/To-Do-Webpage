@@ -20,5 +20,3 @@ A simple webpage that allows the user to create, view and delete To-Dos.
 2. Actually add a label to tell when a task is complete, incomplete or in-progress, rather than just deleting the task to signify it is complete.
 
 ## Disadvantages
-
-1. To-Dos do not persist. If you refresh the browser, all To-Dos will be gone.
