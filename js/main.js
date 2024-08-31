@@ -3,24 +3,23 @@ let addToDoBtn = document.getElementById("add-todo-btn");
 let todoInput = document.getElementById("todo-input");
 let todoList = JSON.parse(localStorage.getItem('todos')) || [];
 
+function addSingleToDoToContainer(tdlContainer, theSingleToDo) {
+    tdlContainer.appendChild(theSingleToDo);
+}
+
+function createToDo(userToDoInput) {
+    let todo = new Todo();
+    todo.createAndReturnSingleToDo();
+    todo.setTextContentOfToDoTextElement(userToDoInput);
+    addSingleToDoToContainer(toDoListContainer, todo.getToDoBody());
+    todoList.push(todo.todo_values);
+    todo.addDeleteEventListener();
+    localStorage.setItem('todos', JSON.stringify(todoList)); // save todoList to local storage
+    /* console.log(todoList); */
+    /* console.log(todo.todo_values); */
+}
+
 function addToDo() {
-
-    function addSingleToDoToContainer(tdlContainer, theSingleToDo) {
-        tdlContainer.appendChild(theSingleToDo);
-    }
-
-    function createToDo(userToDoInput) {
-        let todo = new Todo();
-        todo.createAndReturnSingleToDo();
-        todo.setTextContentOfToDoTextElement(userToDoInput);
-        addSingleToDoToContainer(toDoListContainer, todo.getToDoBody());
-        todoList.push(todo.todo_values);
-        todo.addDeleteEventListener();
-        localStorage.setItem('todos', JSON.stringify(todoList)); // save todoList to local storage
-        /* console.log(todoList); */
-        /* console.log(todo.todo_values); */
-    }
-
 
     let userInput = todoInput.value;
     //userInput = "Task"; // remove and uncomment code above to allow actual user input
@@ -104,6 +103,22 @@ class Todo {
         tdlContainer.appendChild(theSingleToDo);
     }
 }
+// check if the todo list is empty
+// if it is not empty, then cycle through each todo in the list and create it in the todo container
+// given the todolist does not contain the object, but the todo values, todo objects will
+//  have to be created in the loop
 
+// run only if an array (list) was returned from localstorage and there is at least one todo in the array
+if (Array.isArray(todoList) && (todoList.length > 0)) {
+    todoList.forEach(element => {
+        let temp_todo = new Todo();
+        temp_todo.createAndReturnSingleToDo();
+        temp_todo.setTextContentOfToDoTextElement(element.text);
+        addSingleToDoToContainer(toDoListContainer, temp_todo.getToDoBody());
+        //todoList.push(todo.todo_values); // don't need this since the list was already populated via localstorage
+        temp_todo.addDeleteEventListener();
+        //localStorage.setItem('todos', JSON.stringify(todoList)); // don't need this since we pulled from localstorage already
+    });
+}
 // when the delete button on a todo is clicked
 // that todo should be removed from the todoList
