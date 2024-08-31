@@ -18,7 +18,6 @@ A simple webpage that allows the user to create, view and delete To-Dos.
 
 1. The UI definitely needs some improvement, whether to look more inviting or be more intuitive. (In-progress as the webpage develops)
 2. Actually add a label to tell when a task is complete, incomplete or in-progress, rather than just deleting the task to signify it is complete.
-3. Add local storage saving.
 
 ## Disadvantages
 
