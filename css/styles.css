@@ -74,7 +74,7 @@ body {
     background-color: hsl(182, 23%, 73%);
     padding: 0.3rem 0.75rem;
     border: 0.125rem solid black;
-
+    border-radius: 0.4rem;
 }
 
 .single-todo .todo-text {
