@@ -8,12 +8,9 @@ function addSingleToDoToContainer(tdlContainer, theSingleToDo) {
 }
 
 function createToDo(userToDoInput) {
-    let todo = new Todo();
-    todo.createAndReturnSingleToDo();
-    todo.setTextContentOfToDoTextElement(userToDoInput);
-    addSingleToDoToContainer(toDoListContainer, todo.getToDoBody());
+    let todo = new Todo(userToDoInput);
+    addSingleToDoToContainer(toDoListContainer, todo.toDoBody);
     todoList.push(todo.todo_values);
-    todo.addDeleteEventListener();
     localStorage.setItem('todos', JSON.stringify(todoList)); // save todoList to local storage
 }
 
@@ -48,7 +45,6 @@ addToDoBtn.addEventListener('click', addToDo);
 class Todo {
 
     static classId = 0;
-    todo_body;
 
     // text, id, order
     todo_values = {
@@ -57,43 +53,47 @@ class Todo {
         order: 0
     }
     constructor(text) {
-        // update todo counter
+        // update todo counter for every new ToDo created
         this.todo_values.id = Todo.classId;
         Todo.classId += 1;
 
         this.todo_text = text;
+
+        this.todo_body = this.#createAndReturnSingleToDo();
+        this.#setTextContentOfToDoTextElement(this.todo_text);
+        this.#addDeleteEventListener();
     }
 
-    createElementWithClass(element, className) {
+    #createElementWithClass(element, className) {
         let elemWithClass = document.createElement(element);
         elemWithClass.setAttribute("class", className);
         return elemWithClass;
     }
 
     // sets up the HTML Element that represents the ToDo that will be placed in the DOM
-    createAndReturnSingleToDo() {
-        let elemWithClass = this.createElementWithClass("div", "single-todo");
-        elemWithClass.appendChild(this.createElementWithClass("div", "todo-text"));
-        elemWithClass.appendChild(this.createElementWithClass("button", "delete-button")).textContent = "Delete";
-        this.todo_body = elemWithClass;
+    #createAndReturnSingleToDo() {
+        let elemWithClass = this.#createElementWithClass("div", "single-todo");
+        elemWithClass.appendChild(this.#createElementWithClass("div", "todo-text"));
+        elemWithClass.appendChild(this.#createElementWithClass("button", "delete-button")).textContent = "Delete";
+        return elemWithClass;
     }
 
-    getToDoBody() {
+    get toDoBody() {
         return this.todo_body;
     }
 
-    getToDoTextElement() {
-        return this.getToDoBody().querySelector(".todo-text");
+    get toDoTextElement() {
+        return this.toDoBody.querySelector(".todo-text");
     }
 
-    getToDoDeleteBtnElement() {
-        return this.getToDoBody().querySelector(".delete-button");
+    get toDoDeleteBtnElement() {
+        return this.toDoBody.querySelector(".delete-button");
     }
 
-    addDeleteEventListener() {
+    #addDeleteEventListener() {
 
         // removes todo from local storage, as well as from the on screen list container
-        this.getToDoDeleteBtnElement().addEventListener('click', () => {
+        this.toDoDeleteBtnElement.addEventListener('click', () => {
 
             let idx = todoList.findIndex(values => values.id === this.todo_values.id);
             if (idx !== -1) { // runs only if the idx is found
@@ -112,12 +112,12 @@ class Todo {
             }
 
             localStorage.setItem('todos', JSON.stringify(todoList));
-            this.getToDoDeleteBtnElement().parentNode.remove();
+            this.toDoDeleteBtnElement.parentNode.remove();
         });
     }
 
-    setTextContentOfToDoTextElement(userTextContent) {
-        this.getToDoTextElement().textContent = userTextContent;
+    #setTextContentOfToDoTextElement(userTextContent) {
+        this.toDoTextElement.textContent = userTextContent;
         this.todo_values.text = userTextContent;
     }
 }
@@ -125,11 +125,7 @@ class Todo {
 // run only if an array (list) was returned from localstorage and there is at least one todo in the array
 if (Array.isArray(todoList) && (todoList.length > 0)) {
     todoList.forEach(element => {
-        let temp_todo = new Todo();
-        temp_todo.createAndReturnSingleToDo();
-        temp_todo.setTextContentOfToDoTextElement(element.text);
-        addSingleToDoToContainer(toDoListContainer, temp_todo.getToDoBody());
-        temp_todo.addDeleteEventListener();
-        console.log(temp_todo.classId);
+        let temp_todo = new Todo(element.text);
+        addSingleToDoToContainer(toDoListContainer, temp_todo.toDoBody);
     });
 }
