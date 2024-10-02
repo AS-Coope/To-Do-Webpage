@@ -39,6 +39,12 @@ todoInput.addEventListener('keydown', (event) => {
 // submit todo via button press
 addToDoBtn.addEventListener('click', addToDo);
 
+// first, the constructor is what should build the object
+// so follow the order in which it's used outside the class
+// to order how to call the functions in the constructor
+// hence, make private any methods not needed outside (that will be used by the constructor)
+// have todo_text as a parameter to the constructor
+// leave todo_body where it is as a property outside the constructor
 class Todo {
 
     static classId = 0;
