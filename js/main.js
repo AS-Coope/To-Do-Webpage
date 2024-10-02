@@ -48,7 +48,6 @@ addToDoBtn.addEventListener('click', addToDo);
 class Todo {
 
     static classId = 0;
-    todo_text;
     todo_body;
 
     // text, id, order
@@ -57,9 +56,12 @@ class Todo {
         id: 0,
         order: 0
     }
-    constructor() {
+    constructor(text) {
+        // update todo counter
         this.todo_values.id = Todo.classId;
         Todo.classId += 1;
+
+        this.todo_text = text;
     }
 
     createElementWithClass(element, className) {
