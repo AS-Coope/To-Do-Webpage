@@ -22,6 +22,13 @@ body {
     background-color: #f3f3f3;
 }
 
+.error {
+    border-top: 0.2rem solid hsl(56, 100%, 49%);
+    border-bottom: 0.2rem solid hsl(56, 100%, 49%);
+    padding: 0.5rem;
+    background: hsla(56, 91%, 41%, 0.555);
+}
+
 .container h1 {
     align-self: center;
 }

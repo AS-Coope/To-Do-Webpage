@@ -20,9 +20,27 @@ function addToDo() {
     if (userInput !== null && userInput !== "") {
         createToDo(userInput);
         todoInput.value = "" // clear input area after todo's successful submission
+        removeError();
     } else {
-        alert("No ToDo entered!");
+        displayError("No ToDo entered!");
         console.log(userInput, typeof userInput);
+    }
+}
+
+function displayError(error) {
+    if (document.body.children[0].getAttribute('class') !== "error") {
+        let errorMessage = document.createElement('div');
+        errorMessage.setAttribute('class', 'error');
+        errorMessage.textContent = error;
+        document.body.insertBefore(errorMessage, document.body.children[0]);
+    }
+}
+
+function removeError() {
+    for (let element of document.body.children) {
+        if (element.getAttribute('class') === "error") {
+            document.body.removeChild(element);
+        }
     }
 }
 
