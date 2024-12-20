@@ -56,24 +56,51 @@ addToDoBtn.addEventListener('click', addToDo);
 
 class ToDoView {
 
-    createToDo() {
+    #createElementWithClass(element, className) {
+        let elemWithClass = document.createElement(element);
+        elemWithClass.setAttribute("class", className);
+        return elemWithClass;
+    }
 
+    // sets up the HTML Element that represents the ToDo that will be placed in the DOM
+    #createAndReturnSingleToDo() {
+        let elemWithClass = this.#createElementWithClass("div", "single-todo");
+        elemWithClass.appendChild(this.#createElementWithClass("div", "todo-text"));
+        elemWithClass.appendChild(this.#createElementWithClass("button", "delete-button")).textContent = "Delete";
+        return elemWithClass;
+    }
+
+    createToDo() {
+        // retrieve the text entered at the input
+        // call the respective controller method to perform ToDo creation
+        // set the data retrieved from that function to a variable here to be used
+        // to create the ToDo
     }
 
     getToDo() {
-
+        // retrieve todo from data store (may not be necessary )
     }
 
     updateToDoStatus() {
-
+        // retrieve the change of status made to the ToDo
+        // call the respective controller method to perform the ToDo status change
+        // update the status in the UI to match that which was chosen by the user
+        // OR
+        // update the status based on the value returned by the controller (choose one of these methods)
     }
 
     updateToDoText() {
-
+        // retrieve the change of text made to the ToDo
+        // call the respective controller method to perform the ToDo text change
+        // update the text in the UI to match that which the user input
+        // OR
+        // update the text based on the value returned by the controller (choose one of these methods)
     }
 
     updateToDoOrder() {
-
+        // retrieve the change of order of ToDos to the ToDo
+        // call the respective controller method to perform the ToDo text change
+        // redraw the ToDoList based on the new ordering from the backend (model)
     }
 
     deleteToDo() { // more than likely an action listener for the delete button will wrap this
