@@ -54,6 +54,88 @@ todoInput.addEventListener('keydown', (event) => {
 // submit todo via button press
 addToDoBtn.addEventListener('click', addToDo);
 
+class ToDoView {
+
+    createToDo() {
+
+    }
+
+    getToDo() {
+
+    }
+
+    updateToDoStatus() {
+
+    }
+
+    updateToDoText() {
+
+    }
+
+    updateToDoOrder() {
+
+    }
+
+    deleteToDo() { // more than likely an action listener for the delete button will wrap this
+
+    }
+
+    displayErrors() {
+
+    }
+}
+
+class ToDoController {
+
+    createToDo() {
+
+    }
+
+    sendToDoToModel() {
+
+    }
+
+    updateToDoStatus() {
+
+    }
+
+    updateToDoOrder() {
+
+    }
+
+    getToDo() {
+
+    }
+
+    removeToDo() {
+
+    }
+
+}
+
+class ToDoModel {
+
+    addToDo() {
+
+    }
+
+    removeToDo() {
+
+    }
+
+    updateToDoText() {
+
+    }
+
+    updateToDoStatus() {
+
+    }
+
+    updateToDoOrder() {
+
+    }
+}
+
 // first, the constructor is what should build the object
 // so follow the order in which it's used outside the class
 // to order how to call the functions in the constructor
