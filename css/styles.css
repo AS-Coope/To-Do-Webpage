@@ -12,7 +12,7 @@ body {
     margin: 0 auto;
     width: 50%;
     margin-top: 5rem;
-    height: min(30rem);
+    height: min(85vh);
 
     display: flex;
     flex-direction: column;
